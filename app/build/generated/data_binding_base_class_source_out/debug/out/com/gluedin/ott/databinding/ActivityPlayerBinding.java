@@ -4,7 +4,6 @@ package com.gluedin.ott.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,9 +24,6 @@ public final class ActivityPlayerBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageButton btnPlayerBack;
-
-  @NonNull
   public final MaterialButton btnPlayerRetry;
 
   @NonNull
@@ -40,33 +36,18 @@ public final class ActivityPlayerBinding implements ViewBinding {
   public final PlayerView playerView;
 
   @NonNull
-  public final LinearLayout topBarOverlay;
-
-  @NonNull
   public final TextView tvPlayerErrorMessage;
 
-  @NonNull
-  public final TextView tvPlayerTitle;
-
-  @NonNull
-  public final TextView tvTelemetryEventBadge;
-
   private ActivityPlayerBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnPlayerBack, @NonNull MaterialButton btnPlayerRetry,
-      @NonNull ProgressBar playerBufferingProgress, @NonNull LinearLayout playerErrorOverlay,
-      @NonNull PlayerView playerView, @NonNull LinearLayout topBarOverlay,
-      @NonNull TextView tvPlayerErrorMessage, @NonNull TextView tvPlayerTitle,
-      @NonNull TextView tvTelemetryEventBadge) {
+      @NonNull MaterialButton btnPlayerRetry, @NonNull ProgressBar playerBufferingProgress,
+      @NonNull LinearLayout playerErrorOverlay, @NonNull PlayerView playerView,
+      @NonNull TextView tvPlayerErrorMessage) {
     this.rootView = rootView;
-    this.btnPlayerBack = btnPlayerBack;
     this.btnPlayerRetry = btnPlayerRetry;
     this.playerBufferingProgress = playerBufferingProgress;
     this.playerErrorOverlay = playerErrorOverlay;
     this.playerView = playerView;
-    this.topBarOverlay = topBarOverlay;
     this.tvPlayerErrorMessage = tvPlayerErrorMessage;
-    this.tvPlayerTitle = tvPlayerTitle;
-    this.tvTelemetryEventBadge = tvTelemetryEventBadge;
   }
 
   @Override
@@ -96,12 +77,6 @@ public final class ActivityPlayerBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnPlayerBack;
-      ImageButton btnPlayerBack = ViewBindings.findChildViewById(rootView, id);
-      if (btnPlayerBack == null) {
-        break missingId;
-      }
-
       id = R.id.btnPlayerRetry;
       MaterialButton btnPlayerRetry = ViewBindings.findChildViewById(rootView, id);
       if (btnPlayerRetry == null) {
@@ -126,33 +101,14 @@ public final class ActivityPlayerBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.topBarOverlay;
-      LinearLayout topBarOverlay = ViewBindings.findChildViewById(rootView, id);
-      if (topBarOverlay == null) {
-        break missingId;
-      }
-
       id = R.id.tvPlayerErrorMessage;
       TextView tvPlayerErrorMessage = ViewBindings.findChildViewById(rootView, id);
       if (tvPlayerErrorMessage == null) {
         break missingId;
       }
 
-      id = R.id.tvPlayerTitle;
-      TextView tvPlayerTitle = ViewBindings.findChildViewById(rootView, id);
-      if (tvPlayerTitle == null) {
-        break missingId;
-      }
-
-      id = R.id.tvTelemetryEventBadge;
-      TextView tvTelemetryEventBadge = ViewBindings.findChildViewById(rootView, id);
-      if (tvTelemetryEventBadge == null) {
-        break missingId;
-      }
-
-      return new ActivityPlayerBinding((ConstraintLayout) rootView, btnPlayerBack, btnPlayerRetry,
-          playerBufferingProgress, playerErrorOverlay, playerView, topBarOverlay,
-          tvPlayerErrorMessage, tvPlayerTitle, tvTelemetryEventBadge);
+      return new ActivityPlayerBinding((ConstraintLayout) rootView, btnPlayerRetry,
+          playerBufferingProgress, playerErrorOverlay, playerView, tvPlayerErrorMessage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

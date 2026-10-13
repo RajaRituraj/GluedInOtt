@@ -20,6 +20,10 @@
         "source": "com.gluedin.ott.app-main-46:/layout/custom_player_control_view.xml"
     },
     {
+        "merged": "com.gluedin.ott.app-mergeDebugResources-43:/layout/activity_player.xml",
+        "source": "com.gluedin.ott.app-main-46:/layout/activity_player.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-mergeDebugResources-43:\\layout\\activity_content_detail.xml",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-main-46:\\layout\\activity_content_detail.xml"
     },

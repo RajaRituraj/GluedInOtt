@@ -22,6 +22,8 @@ drawable bg_pill_button
 drawable bg_secondary_button
 drawable gradient_card_overlay
 drawable gradient_hero_overlay
+drawable gradient_player_bottom_scrim
+drawable gradient_player_top_scrim
 drawable ic_arrow_back
 drawable ic_error
 drawable ic_forward_10

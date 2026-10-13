@@ -65,12 +65,21 @@ class PlayerActivity : AppCompatActivity() {
 
         contentItem?.let { item ->
             viewModel.setContentTitle(item.title)
-            binding.tvPlayerTitle.text = item.title
+            getPlayerTitleView()?.text = item.title
         }
     }
 
+    private fun getPlayerTitleView(): android.widget.TextView? =
+        binding.playerView.findViewById(com.gluedin.ott.R.id.tvPlayerTitle)
+
+    private fun getTelemetryBadgeView(): android.widget.TextView? =
+        binding.playerView.findViewById(com.gluedin.ott.R.id.tvTelemetryEventBadge)
+
+    private fun getPlayerBackButton(): View? =
+        binding.playerView.findViewById(com.gluedin.ott.R.id.btnPlayerBack)
+
     private fun setupViews() {
-        binding.btnPlayerBack.setOnClickListener {
+        getPlayerBackButton()?.setOnClickListener {
             finish()
         }
 
@@ -93,7 +102,12 @@ class PlayerActivity : AppCompatActivity() {
 
     private fun renderUiState(state: PlayerUiState) {
         // Update live telemetry badge
-        binding.tvTelemetryEventBadge.text = state.latestEventDisplay
+        getTelemetryBadgeView()?.text = state.latestEventDisplay
+
+        // Content Title
+        if (state.contentTitle.isNotBlank()) {
+            getPlayerTitleView()?.text = state.contentTitle
+        }
 
         // Buffering indicator
         binding.playerBufferingProgress.visibility =
@@ -158,6 +172,13 @@ class PlayerActivity : AppCompatActivity() {
         val pauseBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_pause)
         val rewBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_rew)
         val ffwdBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_ffwd)
+
+        getPlayerBackButton()?.setOnClickListener {
+            finish()
+        }
+        contentItem?.let {
+            getPlayerTitleView()?.text = it.title
+        }
 
         updatePlayPauseButtons(player.isPlaying)
 
@@ -258,16 +279,6 @@ class PlayerActivity : AppCompatActivity() {
 
     override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: Configuration) {
         super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
-        if (isInPictureInPictureMode) {
-            binding.playerView.useController = false
-            binding.tvTelemetryEventBadge.visibility = View.GONE
-            binding.btnPlayerBack.visibility = View.GONE
-            binding.tvPlayerTitle.visibility = View.GONE
-        } else {
-            binding.playerView.useController = true
-            binding.tvTelemetryEventBadge.visibility = View.VISIBLE
-            binding.btnPlayerBack.visibility = View.VISIBLE
-            binding.tvPlayerTitle.visibility = View.VISIBLE
-        }
+        binding.playerView.useController = !isInPictureInPictureMode
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gluedin.ott.data.mapper.ContentMapperTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-13T17:48:55" hostname="DESKTOP-SO7QAA7" time="0.163">
+<testsuite name="com.gluedin.ott.data.mapper.ContentMapperTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-13T17:59:17" hostname="DESKTOP-SO7QAA7" time="0.03">
   <properties/>
-  <testcase name="toDomain maps ContentDto properly" classname="com.gluedin.ott.data.mapper.ContentMapperTest" time="0.016"/>
+  <testcase name="toDomain maps ContentDto properly" classname="com.gluedin.ott.data.mapper.ContentMapperTest" time="0.011"/>
   <testcase name="toDomain handles null fields gracefully with safe fallbacks" classname="com.gluedin.ott.data.mapper.ContentMapperTest" time="0.0"/>
-  <testcase name="toDomain maps HomeResponseDto with rails correctly" classname="com.gluedin.ott.data.mapper.ContentMapperTest" time="0.141"/>
+  <testcase name="toDomain maps HomeResponseDto with rails correctly" classname="com.gluedin.ott.data.mapper.ContentMapperTest" time="0.015"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

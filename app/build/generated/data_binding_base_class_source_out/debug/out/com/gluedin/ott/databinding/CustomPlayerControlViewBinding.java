@@ -27,6 +27,9 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
   public final LinearLayout bottomControlsLayout;
 
   @NonNull
+  public final ImageButton btnPlayerBack;
+
+  @NonNull
   public final LinearLayout centerControlsLayout;
 
   @NonNull
@@ -53,14 +56,26 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
   @NonNull
   public final FrameLayout playPauseContainer;
 
+  @NonNull
+  public final LinearLayout topBarOverlay;
+
+  @NonNull
+  public final TextView tvPlayerTitle;
+
+  @NonNull
+  public final TextView tvTelemetryEventBadge;
+
   private CustomPlayerControlViewBinding(@NonNull ConstraintLayout rootView,
-      @NonNull LinearLayout bottomControlsLayout, @NonNull LinearLayout centerControlsLayout,
-      @NonNull TextView exoDuration, @NonNull ImageButton exoFfwd, @NonNull ImageButton exoPause,
-      @NonNull ImageButton exoPlay, @NonNull TextView exoPosition,
-      @NonNull DefaultTimeBar exoProgress, @NonNull ImageButton exoRew,
-      @NonNull FrameLayout playPauseContainer) {
+      @NonNull LinearLayout bottomControlsLayout, @NonNull ImageButton btnPlayerBack,
+      @NonNull LinearLayout centerControlsLayout, @NonNull TextView exoDuration,
+      @NonNull ImageButton exoFfwd, @NonNull ImageButton exoPause, @NonNull ImageButton exoPlay,
+      @NonNull TextView exoPosition, @NonNull DefaultTimeBar exoProgress,
+      @NonNull ImageButton exoRew, @NonNull FrameLayout playPauseContainer,
+      @NonNull LinearLayout topBarOverlay, @NonNull TextView tvPlayerTitle,
+      @NonNull TextView tvTelemetryEventBadge) {
     this.rootView = rootView;
     this.bottomControlsLayout = bottomControlsLayout;
+    this.btnPlayerBack = btnPlayerBack;
     this.centerControlsLayout = centerControlsLayout;
     this.exoDuration = exoDuration;
     this.exoFfwd = exoFfwd;
@@ -70,6 +85,9 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
     this.exoProgress = exoProgress;
     this.exoRew = exoRew;
     this.playPauseContainer = playPauseContainer;
+    this.topBarOverlay = topBarOverlay;
+    this.tvPlayerTitle = tvPlayerTitle;
+    this.tvTelemetryEventBadge = tvTelemetryEventBadge;
   }
 
   @Override
@@ -102,6 +120,12 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
       id = R.id.bottomControlsLayout;
       LinearLayout bottomControlsLayout = ViewBindings.findChildViewById(rootView, id);
       if (bottomControlsLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPlayerBack;
+      ImageButton btnPlayerBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnPlayerBack == null) {
         break missingId;
       }
 
@@ -159,9 +183,28 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.topBarOverlay;
+      LinearLayout topBarOverlay = ViewBindings.findChildViewById(rootView, id);
+      if (topBarOverlay == null) {
+        break missingId;
+      }
+
+      id = R.id.tvPlayerTitle;
+      TextView tvPlayerTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvPlayerTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTelemetryEventBadge;
+      TextView tvTelemetryEventBadge = ViewBindings.findChildViewById(rootView, id);
+      if (tvTelemetryEventBadge == null) {
+        break missingId;
+      }
+
       return new CustomPlayerControlViewBinding((ConstraintLayout) rootView, bottomControlsLayout,
-          centerControlsLayout, exoDuration, exoFfwd, exoPause, exoPlay, exoPosition, exoProgress,
-          exoRew, playPauseContainer);
+          btnPlayerBack, centerControlsLayout, exoDuration, exoFfwd, exoPause, exoPlay, exoPosition,
+          exoProgress, exoRew, playPauseContainer, topBarOverlay, tvPlayerTitle,
+          tvTelemetryEventBadge);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
