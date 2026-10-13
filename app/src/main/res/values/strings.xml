@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GluedIn OTT</string>
+    <string name="play">Play</string>
+    <string name="watch_now">Watch Now</string>
+    <string name="more_info">More Info</string>
+    <string name="details">Details</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading content…</string>
+    <string name="error_loading">Failed to load content. Please try again.</string>
+    <string name="empty_content">No content available.</string>
+    <string name="synopsis">Storyline</string>
+    <string name="cast">Cast</string>
+    <string name="director">Director</string>
+    <string name="trending">Trending Now</string>
+    <string name="recommended">Recommended For You</string>
+    <string name="player_ready">Player Ready</string>
+    <string name="player_error">Playback Error</string>
+</resources>

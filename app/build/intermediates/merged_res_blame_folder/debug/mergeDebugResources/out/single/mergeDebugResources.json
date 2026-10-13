@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_ic_forward_10.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/ic_forward_10.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/layout_activity_home.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/layout_item_content_card.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/layout/item_content_card.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_ic_info.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/ic_info.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/layout_custom_player_control_view.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/layout/custom_player_control_view.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_ic_pause.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/ic_pause.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_ic_replay_10.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/ic_replay_10.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_placeholder_hero.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/placeholder_hero.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/layout_activity_player.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/layout/activity_player.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_ic_play.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/ic_play.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/layout_item_content_rail.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/layout/item_content_rail.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/layout_activity_content_detail.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/layout/activity_content_detail.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_ic_error.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/ic_error.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_placeholder_card.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/placeholder_card.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_gradient_card_overlay.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/gradient_card_overlay.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_bg_secondary_button.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/bg_secondary_button.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_gradient_hero_overlay.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/gradient_hero_overlay.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_bg_pill_button.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/bg_pill_button.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_ic_arrow_back.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/ic_arrow_back.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-debug-43:/drawable_bg_badge.xml.flat",
+        "source": "com.gluedin.ott.app-main-45:/drawable/bg_badge.xml"
+    }
+]

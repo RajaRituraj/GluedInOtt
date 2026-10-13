@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="badge_gold">#F59E0B</color>
+    <color name="bg_main">#0B0D13</color>
+    <color name="bg_surface">#141824</color>
+    <color name="bg_surface_card">#1B2030</color>
+    <color name="bg_surface_elevated">#252C42</color>
+    <color name="glass_white_15">#26FFFFFF</color>
+    <color name="glass_white_30">#4DFFFFFF</color>
+    <color name="primary_accent">#E50914</color>
+    <color name="primary_accent_hover">#B80710</color>
+    <color name="scrim_dark">#D9000000</color>
+    <color name="scrim_transparent">#00000000</color>
+    <color name="secondary_accent">#3B82F6</color>
+    <color name="status_error">#EF4444</color>
+    <color name="status_success">#10B981</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="text_tertiary">#6B7280</color>
+    <string name="app_name">GluedIn OTT</string>
+    <string name="cast">Cast</string>
+    <string name="details">Details</string>
+    <string name="director">Director</string>
+    <string name="empty_content">No content available.</string>
+    <string name="error_loading">Failed to load content. Please try again.</string>
+    <string name="loading">Loading content…</string>
+    <string name="more_info">More Info</string>
+    <string name="play">Play</string>
+    <string name="player_error">Playback Error</string>
+    <string name="player_ready">Player Ready</string>
+    <string name="recommended">Recommended For You</string>
+    <string name="retry">Retry</string>
+    <string name="synopsis">Storyline</string>
+    <string name="trending">Trending Now</string>
+    <string name="watch_now">Watch Now</string>
+    <style name="Theme.GluedInOtt" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary_accent</item>
+        <item name="colorOnPrimary">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/bg_main</item>
+        <item name="android:navigationBarColor">@color/bg_main</item>
+        <item name="android:windowBackground">@color/bg_main</item>
+    </style>
+</resources>

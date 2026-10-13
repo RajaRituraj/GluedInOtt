@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/custom_player_control_view.xml",
+        "source": "com.gluedin.ott.app-main-45:/layout/custom_player_control_view.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/item_content_rail.xml",
+        "source": "com.gluedin.ott.app-main-45:/layout/item_content_rail.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/activity_content_detail.xml",
+        "source": "com.gluedin.ott.app-main-45:/layout/activity_content_detail.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/activity_player.xml",
+        "source": "com.gluedin.ott.app-main-45:/layout/activity_player.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/item_content_card.xml",
+        "source": "com.gluedin.ott.app-main-45:/layout/item_content_card.xml"
+    },
+    {
+        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/activity_home.xml",
+        "source": "com.gluedin.ott.app-main-45:/layout/activity_home.xml"
+    }
+]
