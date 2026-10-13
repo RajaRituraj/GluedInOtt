@@ -1,15 +1,16 @@
 plugins {
     id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
     namespace = "com.gluedin.ott"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.gluedin.ott"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
 
@@ -29,6 +30,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -64,6 +69,7 @@ dependencies {
 
     // Media3 / ExoPlayer
     implementation("androidx.media3:media3-exoplayer:1.5.1")
+    implementation("androidx.media3:media3-exoplayer-hls:1.5.1")
     implementation("androidx.media3:media3-ui:1.5.1")
     implementation("androidx.media3:media3-common:1.5.1")
     implementation("androidx.media3:media3-datasource:1.5.1")
@@ -73,6 +79,11 @@ dependencies {
 
     // JSON Parsing (Mock data & API ready)
     implementation("com.google.code.gson:gson:2.11.0")
+
+    // Retrofit & Networking
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

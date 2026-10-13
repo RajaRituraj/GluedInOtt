@@ -4,6 +4,7 @@ package com.gluedin.ott.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -49,11 +50,15 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
   @NonNull
   public final ImageButton exoRew;
 
+  @NonNull
+  public final FrameLayout playPauseContainer;
+
   private CustomPlayerControlViewBinding(@NonNull ConstraintLayout rootView,
       @NonNull LinearLayout bottomControlsLayout, @NonNull LinearLayout centerControlsLayout,
       @NonNull TextView exoDuration, @NonNull ImageButton exoFfwd, @NonNull ImageButton exoPause,
       @NonNull ImageButton exoPlay, @NonNull TextView exoPosition,
-      @NonNull DefaultTimeBar exoProgress, @NonNull ImageButton exoRew) {
+      @NonNull DefaultTimeBar exoProgress, @NonNull ImageButton exoRew,
+      @NonNull FrameLayout playPauseContainer) {
     this.rootView = rootView;
     this.bottomControlsLayout = bottomControlsLayout;
     this.centerControlsLayout = centerControlsLayout;
@@ -64,6 +69,7 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
     this.exoPosition = exoPosition;
     this.exoProgress = exoProgress;
     this.exoRew = exoRew;
+    this.playPauseContainer = playPauseContainer;
   }
 
   @Override
@@ -147,9 +153,15 @@ public final class CustomPlayerControlViewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.playPauseContainer;
+      FrameLayout playPauseContainer = ViewBindings.findChildViewById(rootView, id);
+      if (playPauseContainer == null) {
+        break missingId;
+      }
+
       return new CustomPlayerControlViewBinding((ConstraintLayout) rootView, bottomControlsLayout,
           centerControlsLayout, exoDuration, exoFfwd, exoPause, exoPlay, exoPosition, exoProgress,
-          exoRew);
+          exoRew, playPauseContainer);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

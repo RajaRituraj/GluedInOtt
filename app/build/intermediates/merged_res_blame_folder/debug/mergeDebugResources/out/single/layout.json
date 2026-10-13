@@ -1,26 +1,30 @@
 [
     {
-        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/custom_player_control_view.xml",
-        "source": "com.gluedin.ott.app-main-45:/layout/custom_player_control_view.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-mergeDebugResources-43:\\layout\\activity_home.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-main-46:\\layout\\activity_home.xml"
     },
     {
-        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/item_content_rail.xml",
-        "source": "com.gluedin.ott.app-main-45:/layout/item_content_rail.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-mergeDebugResources-43:\\layout\\item_content_card.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-main-46:\\layout\\item_content_card.xml"
     },
     {
-        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/activity_content_detail.xml",
-        "source": "com.gluedin.ott.app-main-45:/layout/activity_content_detail.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-mergeDebugResources-43:\\layout\\activity_player.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-main-46:\\layout\\activity_player.xml"
     },
     {
-        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/activity_player.xml",
-        "source": "com.gluedin.ott.app-main-45:/layout/activity_player.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-mergeDebugResources-43:\\layout\\custom_player_control_view.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-main-46:\\layout\\custom_player_control_view.xml"
     },
     {
-        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/item_content_card.xml",
-        "source": "com.gluedin.ott.app-main-45:/layout/item_content_card.xml"
+        "merged": "com.gluedin.ott.app-mergeDebugResources-43:/layout/custom_player_control_view.xml",
+        "source": "com.gluedin.ott.app-main-46:/layout/custom_player_control_view.xml"
     },
     {
-        "merged": "com.gluedin.ott.app-mergeDebugResources-42:/layout/activity_home.xml",
-        "source": "com.gluedin.ott.app-main-45:/layout/activity_home.xml"
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-mergeDebugResources-43:\\layout\\activity_content_detail.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-main-46:\\layout\\activity_content_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-mergeDebugResources-43:\\layout\\item_content_rail.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.9\\com.gluedin.ott.app-main-46:\\layout\\item_content_rail.xml"
     }
 ]

@@ -28,25 +28,37 @@
             android:contentDescription="@string/play"
             android:src="@drawable/ic_replay_10" />
 
-        <!-- Play Button -->
-        <ImageButton
-            android:id="@id/exo_play"
+        <!-- Play / Pause Container (Stacked at exact same position) -->
+        <FrameLayout
+            android:id="@+id/playPauseContainer"
             android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/bg_pill_button"
-            android:contentDescription="@string/play"
-            android:src="@drawable/ic_play"
-            app:tint="#000000" />
+            android:layout_height="64dp">
 
-        <!-- Pause Button -->
-        <ImageButton
-            android:id="@id/exo_pause"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/bg_pill_button"
-            android:contentDescription="@string/play"
-            android:src="@drawable/ic_pause"
-            app:tint="#000000" />
+            <!-- Play Button (shown when paused) -->
+            <ImageButton
+                android:id="@id/exo_play"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pill_button"
+                android:contentDescription="@string/play"
+                android:src="@drawable/ic_play"
+                android:visibility="gone"
+                app:tint="#000000" />
+
+            <!-- Pause Button (shown when playing) -->
+            <ImageButton
+                android:id="@id/exo_pause"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pill_button"
+                android:contentDescription="@string/play"
+                android:src="@drawable/ic_pause"
+                android:visibility="visible"
+                app:tint="#000000" />
+
+        </FrameLayout>
 
         <!-- Fast Forward 10s Button -->
         <ImageButton

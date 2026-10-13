@@ -50,6 +50,7 @@ id ivDetailBanner
 id ivHeroBanner
 id ivThumbnail
 id loadingLayout
+id playPauseContainer
 id playerBufferingProgress
 id playerErrorOverlay
 id playerView

@@ -9,12 +9,20 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.media3.common.MediaItem
+import androidx.media3.datasource.DefaultDataSource
+import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import com.gluedin.ott.OttApplication
 import com.gluedin.ott.databinding.ActivityPlayerBinding
 import com.gluedin.ott.domain.model.ContentItem
 import com.gluedin.ott.player.PlayerEventHandler
 import kotlinx.coroutines.launch
+import android.app.PictureInPictureParams
+import android.content.res.Configuration
+import android.util.Rational
+import androidx.annotation.OptIn
+import androidx.media3.common.util.UnstableApi
 
 class PlayerActivity : AppCompatActivity() {
 
@@ -100,10 +108,21 @@ class PlayerActivity : AppCompatActivity() {
         }
     }
 
+    @OptIn(UnstableApi::class)
     private fun initializePlayer() {
         val item = contentItem ?: return
         if (exoPlayer == null) {
+            val httpDataSourceFactory = DefaultHttpDataSource.Factory()
+                .setUserAgent("Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36 GluedInOtt/1.0")
+                .setAllowCrossProtocolRedirects(true)
+                .setConnectTimeoutMs(15_000)
+                .setReadTimeoutMs(15_000)
+
+            val dataSourceFactory = DefaultDataSource.Factory(this, httpDataSourceFactory)
+            val mediaSourceFactory = DefaultMediaSourceFactory(dataSourceFactory)
+
             val player = ExoPlayer.Builder(this)
+                .setMediaSourceFactory(mediaSourceFactory)
                 .setSeekBackIncrementMs(10_000)
                 .setSeekForwardIncrementMs(10_000)
                 .build()
@@ -129,7 +148,55 @@ class PlayerActivity : AppCompatActivity() {
 
             binding.playerView.player = player
             exoPlayer = player
+
+            setupCustomControls(player)
         }
+    }
+
+    private fun setupCustomControls(player: ExoPlayer) {
+        val playBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_play)
+        val pauseBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_pause)
+        val rewBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_rew)
+        val ffwdBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_ffwd)
+
+        updatePlayPauseButtons(player.isPlaying)
+
+        playBtn?.setOnClickListener {
+            player.play()
+            updatePlayPauseButtons(true)
+        }
+
+        pauseBtn?.setOnClickListener {
+            player.pause()
+            updatePlayPauseButtons(false)
+        }
+
+        rewBtn?.setOnClickListener {
+            player.seekBack()
+        }
+
+        ffwdBtn?.setOnClickListener {
+            player.seekForward()
+        }
+
+        player.addListener(object : androidx.media3.common.Player.Listener {
+            override fun onIsPlayingChanged(isPlaying: Boolean) {
+                updatePlayPauseButtons(isPlaying)
+            }
+
+            override fun onPlaybackStateChanged(playbackState: Int) {
+                if (playbackState == androidx.media3.common.Player.STATE_ENDED) {
+                    updatePlayPauseButtons(false)
+                }
+            }
+        })
+    }
+
+    private fun updatePlayPauseButtons(isPlaying: Boolean) {
+        val playBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_play)
+        val pauseBtn = binding.playerView.findViewById<View>(androidx.media3.ui.R.id.exo_pause)
+        playBtn?.visibility = if (isPlaying) View.GONE else View.VISIBLE
+        pauseBtn?.visibility = if (isPlaying) View.VISIBLE else View.GONE
     }
 
     private fun releasePlayer() {
@@ -177,5 +244,30 @@ class PlayerActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         releasePlayer()
+    }
+
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val params = PictureInPictureParams.Builder()
+                .setAspectRatio(Rational(16, 9))
+                .build()
+            enterPictureInPictureMode(params)
+        }
+    }
+
+    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: Configuration) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        if (isInPictureInPictureMode) {
+            binding.playerView.useController = false
+            binding.tvTelemetryEventBadge.visibility = View.GONE
+            binding.btnPlayerBack.visibility = View.GONE
+            binding.tvPlayerTitle.visibility = View.GONE
+        } else {
+            binding.playerView.useController = true
+            binding.tvTelemetryEventBadge.visibility = View.VISIBLE
+            binding.btnPlayerBack.visibility = View.VISIBLE
+            binding.tvPlayerTitle.visibility = View.VISIBLE
+        }
     }
 }

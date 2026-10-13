@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.gluedin.ott.app-mergeDebugResources-41:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.gluedin.ott.app-mergeDebugResources-42:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\9.1.0\\transforms\\dfb6383f1276f31a7c3520984241cace\\workspace\\transformed\\material-1.12.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\8.9\\transforms\\9520db16aed0ad6b455c0a4b9967ea85\\transformed\\material-1.12.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
