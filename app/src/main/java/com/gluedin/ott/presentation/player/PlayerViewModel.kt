@@ -26,12 +26,12 @@ class PlayerViewModel(
     val uiState: StateFlow<PlayerUiState> = _uiState.asStateFlow()
 
     fun onPlayerEventReceived(event: PlayerEvent) {
-        // 1. Dispatch event to Analytics/Event Repository via clean Use Case
+        // Log analytics event
         viewModelScope.launch {
             logPlayerEventUseCase(event)
         }
 
-        // 2. Update player presentation UI state accordingly
+        // Update UI state for current playback status
         val current = _uiState.value
         _uiState.value = when (event) {
             is PlayerEvent.Ready -> current.copy(

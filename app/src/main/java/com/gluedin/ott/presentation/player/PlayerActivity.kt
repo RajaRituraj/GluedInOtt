@@ -141,8 +141,7 @@ class PlayerActivity : AppCompatActivity() {
                 .setSeekForwardIncrementMs(10_000)
                 .build()
 
-            // Construct separated PlayerEventHandler following assignment architecture:
-            // Player -> Player Event Handler -> ViewModel -> Analytics Repository
+            // Setup player event callbacks
             val eventHandler = PlayerEventHandler(
                 contentId = item.id,
                 contentTitle = item.title,

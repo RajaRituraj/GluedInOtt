@@ -9,10 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
-/**
- * Repository responsible for dispatching, logging, and storing player analytics events.
- * Follows Clean Architecture by decoupling Player logic from concrete logging/analytics platforms.
- */
+// Logs player events to logcat and keeps in-memory history
 class AnalyticsRepositoryImpl : AnalyticsRepository {
 
     companion object {
@@ -24,7 +21,6 @@ class AnalyticsRepositoryImpl : AnalyticsRepository {
     private val _eventsFlow = MutableStateFlow<List<PlayerEvent>>(emptyList())
 
     override suspend fun logPlayerEvent(event: PlayerEvent) {
-        // Log event prominently with clean formatting
         Log.i(TAG, ">>> EVENT RECEIVED: $event")
 
         mutex.withLock {

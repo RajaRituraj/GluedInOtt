@@ -4,10 +4,7 @@ import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
 import com.gluedin.ott.domain.model.PlayerEvent
 
-/**
- * Listens to Media3 Player callbacks, normalizes them, and delivers domain [PlayerEvent]s.
- * Separates player framework concerns from ViewModel and Business/Analytics logic.
- */
+// Handles ExoPlayer lifecycle and converts internal callbacks into app events
 class PlayerEventHandler(
     private val contentId: String,
     private val contentTitle: String,

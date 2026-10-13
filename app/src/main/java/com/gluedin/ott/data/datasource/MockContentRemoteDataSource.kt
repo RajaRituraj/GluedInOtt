@@ -9,10 +9,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import java.io.InputStreamReader
 
-/**
- * Mock implementation of [ContentRemoteDataSource] reading static JSON from app assets.
- * Simulates network latency (500ms) to test loading states realistically.
- */
+// Loads static mock JSON from assets with simulated network delay
 class MockContentRemoteDataSource(
     private val context: Context,
     private val gson: Gson = Gson(),

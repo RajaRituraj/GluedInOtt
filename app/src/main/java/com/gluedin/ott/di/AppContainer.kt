@@ -17,15 +17,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/**
- * Dependency container adhering to Dependency Inversion and Clean Architecture.
- * Provides easy mocking and swappable data sources for production vs testing.
- */
+// Service locator holding app-wide dependencies
 class AppContainer(context: Context) {
 
     val gson: Gson by lazy { Gson() }
 
-    // --- Retrofit Setup (Ready for production) ---
+    // Retrofit setup for production backend
     private val okHttpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().apply {
@@ -38,8 +35,7 @@ class AppContainer(context: Context) {
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            // IMPORTANT: Replace with your actual production API base URL
-            .baseUrl("https://api.example.com/") 
+            .baseUrl("https://api.example.com/") // TODO: set live backend endpoint
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
@@ -49,13 +45,10 @@ class AppContainer(context: Context) {
         retrofit.create(com.gluedin.ott.data.datasource.OttApiService::class.java)
     }
 
-    // Toggle between mock and real API by changing this variable.
-    // Currently using MockContentRemoteDataSource so the app can run out-of-the-box 
-    // without needing a real backend.
+    // Switch to RetrofitContentRemoteDataSource once backend API is deployed
     val remoteDataSource: ContentRemoteDataSource by lazy {
         MockContentRemoteDataSource(context.applicationContext, gson)
-        // To use real API, uncomment the line below and comment the line above:
-        // com.gluedin.ott.data.datasource.RetrofitContentRemoteDataSource(apiService)
+        // RetrofitContentRemoteDataSource(apiService)
     }
 
     val contentRepository: ContentRepository by lazy {
